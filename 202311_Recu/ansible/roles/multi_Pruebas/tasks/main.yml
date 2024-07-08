@@ -1,0 +1,17 @@
+---
+
+- name: "Crear directorios en /tmp/Recu2doParcial_202311"
+  file:
+    path: "/tmp/Recu2doParcial_202311/{{ item }}"
+    state: directory
+    mode: '0775'
+    recurse: yes
+  with_items:
+    - "Alumno"
+    - "Pc"
+
+- name: "Agrego archivo desde template"
+  template:
+    src: template_01.j2
+    dest: /tmp/Recu2doParcial_202311/Alumno/datos.txt
+
